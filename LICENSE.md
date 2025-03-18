@@ -1,0 +1,1 @@
+Akba rights
