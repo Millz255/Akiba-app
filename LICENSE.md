@@ -1,1 +1,1 @@
-Akba rights
+Akiba rights
