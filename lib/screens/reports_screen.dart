@@ -240,7 +240,7 @@ class _ReportsExportScreenState extends State<ReportsExportScreen>
           return pw.Column(
             crossAxisAlignment: pw.CrossAxisAlignment.start,
             children: [
-              pw.Text('Financial Report', style: pw.TextStyle(fontSize: 18, fontWeight: pw.FontWeight.bold)),
+              pw.Text('Akiba Financial Report', style: pw.TextStyle(fontSize: 18, fontWeight: pw.FontWeight.bold)),
               pw.SizedBox(height: 10),
               pw.Text('Date Range: ${DateFormat.yMMMd().format(_selectedDateRange.start)} - ${DateFormat.yMMMd().format(_selectedDateRange.end)}'), // Date range
               pw.SizedBox(height: 20),
@@ -300,7 +300,7 @@ class _ReportsExportScreenState extends State<ReportsExportScreen>
           opacity: 1.0,
           duration: const Duration(milliseconds: 500),
           child: AlertDialog(
-            title: Text('Financial Report', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue)),
+            title: Text('Akiba Financial Report', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue)),
             content: SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
