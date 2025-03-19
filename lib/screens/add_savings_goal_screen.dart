@@ -28,8 +28,8 @@ class _AddSavingsGoalScreenState extends State<AddSavingsGoalScreen> {
 
     if (widget.goal != null) {
       _titleController.text = widget.goal!.title;
-      _targetAmountController.text = NumberFormat("#,##0", "en_US").format(widget.goal!.targetAmount);
-      _savingAmountController.text = NumberFormat("#,##0", "en_US").format(widget.goal!.savingAmount);
+      _targetAmountController.text = widget.goal!.targetAmount.toString(); // Use raw double as string
+      _savingAmountController.text = widget.goal!.savingAmount.toString(); // Use raw double as string
       _selectedFrequency = widget.goal!.frequency;
     }
   }
@@ -122,7 +122,6 @@ class _AddSavingsGoalScreenState extends State<AddSavingsGoalScreen> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 SizedBox(height: 40),
-
                 Icon(
                   Icons.savings,
                   size: 60.0,
@@ -134,7 +133,7 @@ class _AddSavingsGoalScreenState extends State<AddSavingsGoalScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      _buildTextFormField(_titleController, "Goal Title", "Enter a goal title"),
+                      _buildTextFormField(_titleController, "Goal Title", "Enter a goal title", isNumberField: false),
                       _buildTextFormField(_targetAmountController, "Target Amount (Tsh)", "Enter a target amount", keyboardType: TextInputType.number),
                       _buildTextFormField(_savingAmountController, "Saving Amount per Period", "Enter a saving amount", keyboardType: TextInputType.number),
                       _buildDropdown(),
@@ -151,43 +150,51 @@ class _AddSavingsGoalScreenState extends State<AddSavingsGoalScreen> {
     );
   }
 
-  Widget _buildTextFormField(TextEditingController controller, String label, String errorText, {TextInputType? keyboardType}) {
-  return Padding(
-    padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
-    child: TextFormField(
-      controller: controller,
-      decoration: InputDecoration(
-        labelText: label,
-        labelStyle: TextStyle(color: Colors.blueAccent, fontWeight: FontWeight.bold),
-        filled: true,
-        fillColor: Colors.blue.shade50,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: Colors.blueAccent, width: 2),
+  Widget _buildTextFormField(
+    TextEditingController controller,
+    String label,
+    String errorText, {
+    TextInputType? keyboardType,
+    bool isNumberField = true,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+      child: TextFormField(
+        controller: controller,
+        decoration: InputDecoration(
+          labelText: label,
+          labelStyle: TextStyle(color: Colors.blueAccent, fontWeight: FontWeight.bold),
+          filled: true,
+          fillColor: Colors.blue.shade50,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: BorderSide(color: Colors.blueAccent, width: 2),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: BorderSide(color: Colors.blueAccent, width: 2),
+          ),
+          hintStyle: TextStyle(color: Colors.black),
         ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: Colors.blueAccent, width: 2),
-        ),
-        hintStyle: TextStyle(color: Colors.black), // Added this line
+        keyboardType: keyboardType,
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return errorText;
+          }
+          if (isNumberField) {
+            final parsedValue = _parseDouble(value);
+            if (parsedValue == null) {
+              return "Please enter a valid number";
+            }
+            if (parsedValue < 0) {
+              return "Savings can't be negative";
+            }
+          }
+          return null;
+        },
       ),
-      keyboardType: keyboardType,
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return errorText;
-        }
-        final parsedValue = _parseDouble(value);
-        if (parsedValue == null) {
-          return "Please enter a valid number";
-        }
-        if (parsedValue < 0) {
-          return "Savings can't be negative";
-        }
-        return null;
-      },
-    ),
-  );
-}
+    );
+  }
 
   Widget _buildDropdown() {
     return Padding(
