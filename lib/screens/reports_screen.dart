@@ -360,7 +360,7 @@ Widget build(BuildContext context) {
                           child: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.start, // Changed to start
                               children: <Widget>[
                                 ElevatedButton(
                                   onPressed: _pickDateRange,
@@ -370,11 +370,12 @@ Widget build(BuildContext context) {
                                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                                     padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                                   ),
-                                  child: const Text("Select Date Range"),
+                                  child: const Text("Select Date"),
                                 ),
+                                const SizedBox(width: 13), // Add some spacing between the button and text if needed
                                 Text(
                                   "${DateFormat.yMMMd().format(_selectedDateRange.start)} - ${DateFormat.yMMMd().format(_selectedDateRange.end)}",
-                                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                                 ),
                               ],
                             ),
