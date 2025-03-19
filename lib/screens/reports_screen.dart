@@ -165,7 +165,7 @@ class _ReportsExportScreenState extends State<ReportsExportScreen>
       });
     }
 
-    String reportText = "Financial Report\n";
+    String reportText = "Akiba Financial Report\n";
     reportText += "Date Range: ${DateFormat.yMMMd().format(_selectedDateRange.start)} - ${DateFormat.yMMMd().format(_selectedDateRange.end)}\n\n";
 
     if (_selectedReportType == ReportType.savings) {
