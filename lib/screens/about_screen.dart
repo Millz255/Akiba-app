@@ -5,13 +5,15 @@ import 'package:Akiba/screens/savings_goals_screen.dart';
 import 'package:Akiba/screens/settings_screen.dart';
 import 'package:Akiba/screens/transactions_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-import '../models/user_profile.dart'; // Ensure your UserProfile model is imported
+import '../models/user_profile.dart'; 
 
 class AboutScreen extends StatefulWidget {
-  final Box<UserProfile> settingsBox; // Pass the already opened box
+  final Box<UserProfile> settingsBox; 
 
   const AboutScreen({super.key, required this.settingsBox});
 
@@ -318,16 +320,111 @@ class _AboutScreenState extends State<AboutScreen> with SingleTickerProviderStat
         label,
         style: Theme.of(context).textTheme.bodyLarge,
       ),
-      subtitle: Text(
-        value,
-        style: TextStyle(
-          fontSize: 14,
-          color: Theme.of(context).textTheme.bodyMedium?.color,
-          fontFamily: 'Noto Sans',
+      subtitle: InkWell(
+        onTap: () {
+          if (label == 'Phone') {
+            _showPhoneActionSheet(context, value);
+          } else if (label == 'Email') {
+            _showEmailActionSheet(context, value);
+          }
+        },
+        child: Text(
+          value,
+          style: TextStyle(
+            fontSize: 14,
+            color: Colors.blue, // Make the value tappable
+            fontFamily: 'Noto Sans',
+            decoration: TextDecoration.underline, // Indicate it's tappable
+          ),
         ),
       ),
-      onTap: () {},
     ).animate().fadeIn().move(begin: Offset(0, -10), end: Offset(0, 0));
+  }
+
+  void _showPhoneActionSheet(BuildContext context, String phoneNumber) {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext bc) {
+        return SafeArea(
+          child: Wrap(
+            children: <Widget>[
+              ListTile(
+                leading: const Icon(Icons.call),
+                title: const Text('Call'),
+                onTap: () async {
+                  Navigator.pop(context);
+                  final Uri launchUri = Uri(
+                    scheme: 'tel',
+                    path: phoneNumber,
+                  );
+                  if (await canLaunchUrl(launchUri)) {
+                    await launchUrl(launchUri);
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('Could not launch phone app.')),
+                    );
+                  }
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.copy),
+                title: const Text('Copy Number'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Clipboard.setData(ClipboardData(text: phoneNumber));
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Phone number copied to clipboard.')),
+                  );
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  void _showEmailActionSheet(BuildContext context, String email) {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext bc) {
+        return SafeArea(
+          child: Wrap(
+            children: <Widget>[
+              ListTile(
+                leading: const Icon(Icons.mail_outline),
+                title: const Text('Send Email'),
+                onTap: () async {
+                  Navigator.pop(context);
+                  final Uri launchUri = Uri(
+                    scheme: 'mailto',
+                    path: email,
+                  );
+                  if (await canLaunchUrl(launchUri)) {
+                    await launchUrl(launchUri);
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('Could not launch email app.')),
+                    );
+                  }
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.copy),
+                title: const Text('Copy Email'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Clipboard.setData(ClipboardData(text: email));
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Email address copied to clipboard.')),
+                  );
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 
   Widget _buildVersionNumber(BuildContext context) {
