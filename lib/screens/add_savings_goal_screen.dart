@@ -169,6 +169,7 @@ class _AddSavingsGoalScreenState extends State<AddSavingsGoalScreen> {
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide(color: Colors.blueAccent, width: 2),
         ),
+        hintStyle: TextStyle(color: Colors.black), // Added this line
       ),
       keyboardType: keyboardType,
       validator: (value) {
