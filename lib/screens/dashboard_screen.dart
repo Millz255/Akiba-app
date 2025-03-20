@@ -697,9 +697,31 @@ void initState() {
             const SizedBox(height: 8),
             recentTransactions.isEmpty
                 ? Center(
-                    child: Text(
-                      "No transactions yet.",
-                      style: TextStyle(fontSize: 16, color: Colors.grey, fontFamily: 'Noto Sans'),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          "No transactions yet.",
+                          style: TextStyle(fontSize: 16, color: Colors.grey, fontFamily: 'Noto Sans'),
+                          textAlign: TextAlign.center,
+                        ),
+                        SizedBox(height: 8),
+                        Text(
+                          "To start adding transactions, please go to the",
+                          style: TextStyle(fontSize: 14, color: Colors.grey[600], fontFamily: 'Noto Sans'),
+                          textAlign: TextAlign.center,
+                        ),
+                        Text(
+                          "'Transactions' option in the menu below.",
+                          style: TextStyle(fontSize: 14, color: Theme.of(context).primaryColor, fontWeight: FontWeight.bold, fontFamily: 'Noto Sans'),
+                          textAlign: TextAlign.center,
+                        ),
+                        Text(
+                          "(It's the icon with the horizontal arrows).",
+                          style: TextStyle(fontSize: 12, color: Colors.grey[600], fontFamily: 'Noto Sans'),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
                     ),
                   )
                 : Column(
@@ -863,21 +885,38 @@ void initState() {
           padding: const EdgeInsets.all(16),
           child: Center(
             child: Column(
-              mainAxisSize: MainAxisSize.min,
               children: [
                 Icon(Icons.bar_chart, size: 48, color: Colors.grey[400]),
                 const SizedBox(height: 8),
                 Text(
                   'No savings data available',
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.grey[600], fontFamily: 'Noto Sans'),
+                  textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 4),
                 Text(
                   'Start saving to see your progress here!',
                   style: TextStyle(fontSize: 14, color: Colors.grey[500], fontFamily: 'Noto Sans'),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  'To start tracking your savings progress, please go to the',
+                  style: TextStyle(fontSize: 14, color: Colors.grey[600], fontFamily: 'Noto Sans'),
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  "'Savings Goals' option in the menu below.",
+                  style: TextStyle(fontSize: 14, color: Theme.of(context).primaryColor, fontWeight: FontWeight.bold, fontFamily: 'Noto Sans'),
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  "(It's the icon with the piggy bank).",
+                  style: TextStyle(fontSize: 12, color: Colors.grey[600], fontFamily: 'Noto Sans'),
+                  textAlign: TextAlign.center,
                 ),
               ],
-            ),
+            )
           ),
         ),
       );

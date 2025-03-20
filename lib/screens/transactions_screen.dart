@@ -236,18 +236,37 @@ class _TransactionsScreenState extends State<TransactionsScreen>
                     valueListenable: transactionBox.listenable(),
                     builder: (context, Box<TransactionModel> box, _) {
                       if (box.isEmpty) {
-                        return Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(Icons.money_off, size: 60, color: Colors.grey),
-                              SizedBox(height: 16),
-                              Text("No transactions yet. Add some!",
-                                  style: TextStyle(fontSize: 18, color: Colors.grey)),
-                            ],
-                          ),
-                        );
-                      }
+                      return Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.money_off, size: 60, color: Colors.grey),
+                            SizedBox(height: 16),
+                            Text(
+                              "No transactions yet. Tap the '+' button to add some!",
+                              style: TextStyle(fontSize: 18, color: Colors.grey),
+                              textAlign: TextAlign.center,
+                            ),
+                            SizedBox(height: 10),
+                            Text(
+                              "Once you add transactions:",
+                              style: TextStyle(fontSize: 14, color: Colors.grey[600]),
+                              textAlign: TextAlign.center,
+                            ),
+                            Text(
+                              "- Tap a transaction to view or edit details.",
+                              style: TextStyle(fontSize: 14, color: Colors.grey[600]),
+                              textAlign: TextAlign.center,
+                            ),
+                            Text(
+                              "- Swipe left or right on a transaction to delete it.",
+                              style: TextStyle(fontSize: 14, color: Colors.grey[600]),
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        ),
+                      );
+                    }
 
                       // Apply filters
                       var filteredTransactions = box.values.toList().where((transaction) {
