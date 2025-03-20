@@ -181,12 +181,34 @@ class _SavingsGoalsScreenState extends State<SavingsGoalsScreen>
                                 box.values.toList().reversed.toList();
 
                             if (savingsList.isEmpty) {
-                              return Center(
-                                child: Text("No savings added yet!",
+                            return Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "No savings goals added yet!",
                                     style: TextStyle(
-                                        fontSize: 18, color: Colors.grey)),
-                              );
-                            }
+                                        fontSize: 18, color: Colors.grey, fontFamily: 'Noto Sans'),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  SizedBox(height: 16),
+                                  Text(
+                                    "To start saving towards your goals, please go to the",
+                                    style: TextStyle(
+                                        fontSize: 14, color: Colors.grey[600], fontFamily: 'Noto Sans'),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  SizedBox(height: 16),
+                                  Text(
+                                    "Tap the '+' button to add a new savings goal.",
+                                    style: TextStyle(
+                                        fontSize: 14, color: Colors.grey[600], fontFamily: 'Noto Sans'),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ],
+                              ),
+                            );
+                          }
 
                             return ListView.builder(
                               itemCount: savingsList.length,
