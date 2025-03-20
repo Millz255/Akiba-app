@@ -716,11 +716,6 @@ void initState() {
                           style: TextStyle(fontSize: 14, color: Theme.of(context).primaryColor, fontWeight: FontWeight.bold, fontFamily: 'Noto Sans'),
                           textAlign: TextAlign.center,
                         ),
-                        Text(
-                          "(It's the icon with the horizontal arrows).",
-                          style: TextStyle(fontSize: 12, color: Colors.grey[600], fontFamily: 'Noto Sans'),
-                          textAlign: TextAlign.center,
-                        ),
                       ],
                     ),
                   )
@@ -908,11 +903,6 @@ void initState() {
                 Text(
                   "'Savings Goals' option in the menu below.",
                   style: TextStyle(fontSize: 14, color: Theme.of(context).primaryColor, fontWeight: FontWeight.bold, fontFamily: 'Noto Sans'),
-                  textAlign: TextAlign.center,
-                ),
-                Text(
-                  "(It's the icon with the piggy bank).",
-                  style: TextStyle(fontSize: 12, color: Colors.grey[600], fontFamily: 'Noto Sans'),
                   textAlign: TextAlign.center,
                 ),
               ],
