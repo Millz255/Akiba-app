@@ -1059,7 +1059,7 @@ void initState() {
       }
 
       // Start the message change timer after the first build
-      Future.delayed(const Duration(seconds: 5), _changeMessage);
+      Future.delayed(const Duration(seconds: 7), _changeMessage);
 
       return Card(
         elevation: 4,
