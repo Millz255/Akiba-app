@@ -193,7 +193,7 @@ class _SavingsGoalsScreenState extends State<SavingsGoalsScreen>
                                   ),
                                   SizedBox(height: 16),
                                   Text(
-                                    "To start saving towards your goals, please go to the",
+                                    "To start saving towards your goals",
                                     style: TextStyle(
                                         fontSize: 14, color: Colors.grey[600], fontFamily: 'Noto Sans'),
                                     textAlign: TextAlign.center,
