@@ -231,65 +231,66 @@ class _ReportsExportScreenState extends State<ReportsExportScreen>
   }
 
   Future<Uint8List> _generatePdfContent(PdfPageFormat format, String reportText) async {
-    final pdfDoc = pw.Document();
+  final pdfDoc = pw.Document();
 
-    pdfDoc.addPage(
-      pw.Page(
-        pageFormat: format,
-        build: (pw.Context context) {
-          return pw.Column(
-            crossAxisAlignment: pw.CrossAxisAlignment.start,
-            children: [
-              pw.Text('Akiba Financial Report', style: pw.TextStyle(fontSize: 18, fontWeight: pw.FontWeight.bold)),
+  pdfDoc.addPage(
+    pw.Page(
+      pageFormat: format,
+      build: (pw.Context context) {
+        return pw.Column(
+          crossAxisAlignment: pw.CrossAxisAlignment.start,
+          children: [
+            pw.Text('Akiba Financial Report', style: pw.TextStyle(fontSize: 18, fontWeight: pw.FontWeight.bold)),
+            pw.SizedBox(height: 10),
+            pw.Text('Date Range: ${DateFormat.yMMMd().format(_selectedDateRange.start)} - ${DateFormat.yMMMd().format(_selectedDateRange.end)}'), // Date range
+            pw.SizedBox(height: 20),
+
+            if (_selectedReportType == ReportType.savings && _savings.isNotEmpty) ...[
+              pw.Text('Savings Goals', style: pw.TextStyle(fontSize: 16, fontWeight: pw.FontWeight.bold)),
+              pw.SizedBox(height: 8),
+              pw.Table.fromTextArray(
+                border: pw.TableBorder.all(),
+                headers: ['Goal Title', 'Saved Amount', 'Target Amount', 'Progress'],
+                data: _savings.map((saving) {
+                  double progress = (saving.savedAmount / saving.targetAmount) * 100;
+                  return [
+                    saving.title,
+                    'Tzs ${saving.savedAmount.toStringAsFixed(2)}',
+                    'Tzs ${saving.targetAmount.toStringAsFixed(2)}',
+                    '${progress.toStringAsFixed(2)}%',
+                  ];
+                }).toList(),
+              ),
               pw.SizedBox(height: 10),
-              pw.Text('Date Range: ${DateFormat.yMMMd().format(_selectedDateRange.start)} - ${DateFormat.yMMMd().format(_selectedDateRange.end)}'), // Date range
-              pw.SizedBox(height: 20),
-
-              if (_selectedReportType == ReportType.savings && _savings.isNotEmpty) ...[
-                pw.Text('Savings Goals', style: pw.TextStyle(fontSize: 16, fontWeight: pw.FontWeight.bold)),
-                pw.SizedBox(height: 8),
-                pw.Table.fromTextArray(
-                  border: pw.TableBorder.all(),
-                  headers: ['Goal Title', 'Saved Amount', 'Target Amount', 'Progress'],
-                  data: _savings.map((saving) {
-                    double progress = (saving.savedAmount / saving.targetAmount) * 100;
-                    return [
-                      saving.title,
-                      'Tzs ${saving.savedAmount.toStringAsFixed(2)}',
-                      'Tzs ${saving.targetAmount.toStringAsFixed(2)}',
-                      '${progress.toStringAsFixed(2)}%',
-                    ];
-                  }).toList(),
-                ),
-                pw.SizedBox(height: 10),
-                pw.Text('Total Savings Progress: Tzs ${_calculateTotalSavings().toStringAsFixed(2)}'),
-              ],
-
-              if (_selectedReportType == ReportType.transactions && _transactions.isNotEmpty) ...[
-                pw.Text('Transactions', style: pw.TextStyle(fontSize: 16, fontWeight: pw.FontWeight.bold)),
-                pw.SizedBox(height: 8),
-                pw.Table.fromTextArray(
-                  border: pw.TableBorder.all(),
-                  headers: ['Date', 'Category', 'Notes', 'Amount'],
-                  data: _transactions.map((transaction) => [
-                    DateFormat.yMMMd().format(transaction.date),
-                    transaction.category,
-                    transaction.notes,
-                    'Tzs ${transaction.amount.toStringAsFixed(2)}',
-                  ]).toList(),
-                ),
-                pw.SizedBox(height: 10),
-                pw.Text('Total Income: Tzs ${_calculateTotalIncome().toStringAsFixed(2)}'),
-                pw.Text('Total Expenses: Tzs ${_calculateTotalExpenses().toStringAsFixed(2)}'),
-                pw.Text('Total Balance: Tzs ${_calculateTotalBalance().toStringAsFixed(2)}\n'),
-              ],
+              pw.Text('Total Savings Progress: Tzs ${_calculateTotalSavings().toStringAsFixed(2)}'),
             ],
-          );
-        },
-      ),
-    );
-    return await pdfDoc.save();
-  }
+
+            if (_selectedReportType == ReportType.transactions && _transactions.isNotEmpty) ...[
+              pw.Text('Transactions', style: pw.TextStyle(fontSize: 16, fontWeight: pw.FontWeight.bold)),
+              pw.SizedBox(height: 8),
+              pw.Table.fromTextArray(
+                border: pw.TableBorder.all(),
+                headers: ['Date', 'Category', 'Notes', 'Amount'],
+                data: _transactions.map((transaction) => [
+                  DateFormat.yMMMd().format(transaction.date),
+                  transaction.category,
+                  transaction.notes,
+                  'Tzs ${transaction.amount.toStringAsFixed(2)}',
+                ]).toList(),
+              ),
+              pw.SizedBox(height: 10),
+              pw.Text('Total Income: Tzs ${_calculateTotalIncome().toStringAsFixed(2)}'),
+              pw.Text('Total Expenses: Tzs ${_calculateTotalExpenses().toStringAsFixed(2)}'),
+              // Calculate total balance here using the same logic
+              pw.Text('Total Balance: Tzs ${(_calculateTotalIncome() - _calculateTotalExpenses()).toStringAsFixed(2)}\n'),
+            ],
+          ],
+        );
+      },
+    ),
+  );
+  return await pdfDoc.save();
+}
 
   void _showReportDialog(String content) {
     debugPrint('_showReportDialog: content = \n$content');
@@ -324,7 +325,7 @@ class _ReportsExportScreenState extends State<ReportsExportScreen>
   double _calculateTotalSavings() => _savings.fold(0, (sum, saving) => sum + saving.savedAmount);
   double _calculateTotalIncome() => _transactions.where((t) => t.isIncome).fold(0, (sum, t) => sum + t.amount);
   double _calculateTotalExpenses() => _transactions.where((t) => !t.isIncome).fold(0, (sum, t) => sum - t.amount);
-  double _calculateTotalBalance() => _calculateTotalIncome() + _calculateTotalExpenses();
+ // double _calculateTotalBalance() => _calculateTotalIncome() + _calculateTotalExpenses();
 
   @override
 Widget build(BuildContext context) {
