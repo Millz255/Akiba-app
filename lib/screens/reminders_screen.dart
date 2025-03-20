@@ -266,83 +266,105 @@ void initState() {
                   ),
                   const SizedBox(height: 10),
                   ValueListenableBuilder(
-                    valueListenable: remindersBox.listenable(),
-                    builder: (context, Box<ReminderModel> box, _) {
-                      if (box.isEmpty) {
-                        return Center(
-                          child: Padding(
-                            padding: const EdgeInsets.only(top: 50.0),
-                            child: Text(
-                              "No reminders set. Add one!",
-                              style: GoogleFonts.notoSans(fontSize: 16, color: Colors.grey),
-                            ),
-                          ),
-                        );
-                      }
-                      return ListView.builder(
-                        padding: const EdgeInsets.all(12),
-                        shrinkWrap: true, // Important for SingleChildScrollView
-                        physics: NeverScrollableScrollPhysics(), // Disable scrolling of ListView
-                        itemCount: box.length,
-                        itemBuilder: (context, index) {
-                          final ReminderModel reminder = box.getAt(index)!;
-
-                          return Dismissible(
-                            key: Key(reminder.id),
-                            direction: DismissDirection.endToStart,
-                            onDismissed: (direction) {
-                              reminder.delete();
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text("Reminder deleted")),
-                              );
-                            },
-                            background: Container(
-                              alignment: Alignment.centerRight,
-                              padding: EdgeInsets.symmetric(horizontal: 20),
-                              color: Colors.red,
-                              child: Icon(Icons.delete, color: Colors.white),
-                            ),
-                            child: GestureDetector(
-                              onTap: () async {
-                                await Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        AddReminderScreen(reminder: reminder),
+                      valueListenable: remindersBox.listenable(),
+                      builder: (context, Box<ReminderModel> box, _) {
+                        if (box.isEmpty) {
+                          return Center(
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 50.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text(
+                                    "No reminders set. Tap the '+' button below to add one.",
+                                    style: GoogleFonts.notoSans(fontSize: 16, color: Colors.grey),
+                                    textAlign: TextAlign.center,
                                   ),
-                                );
-                                setState(() {});
-                              },
-                              child: AnimatedContainer(
-                                duration: Duration(milliseconds: 300),
-                                curve: Curves.easeInOut,
-                                margin: EdgeInsets.symmetric(vertical: 8),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(12),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.grey.withOpacity(0.2),
-                                      blurRadius: 6,
-                                      offset: Offset(0, 2),
-                                    ),
-                                  ],
-                                ),
-                                child: ListTile(
-                                  title: Text(reminder.message,
-                                      style: GoogleFonts.notoSans(fontSize: 16)),
-                                  subtitle: Text(
-                                    DateFormat.jm().format(reminder.time),
-                                    style: GoogleFonts.notoSans(color: Colors.grey[600]),
+                                  SizedBox(height: 10),
+                                  Text(
+                                    "Once you add reminders:",
+                                    style: GoogleFonts.notoSans(fontSize: 14, color: Colors.grey[600]),
+                                    textAlign: TextAlign.center,
                                   ),
-                                ),
+                                  Text(
+                                    "- Tap a reminder to edit it.",
+                                    style: GoogleFonts.notoSans(fontSize: 14, color: Colors.grey[600]),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  Text(
+                                    "- Swipe left or right on a reminder to delete it.",
+                                    style: GoogleFonts.notoSans(fontSize: 14, color: Colors.grey[600]),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ],
                               ),
                             ),
                           );
-                        },
-                      );
-                    },
-                  ),
+                        }
+                        return ListView.builder(
+                          padding: const EdgeInsets.all(12),
+                          shrinkWrap: true, // Important for SingleChildScrollView
+                          physics: NeverScrollableScrollPhysics(), // Disable scrolling of ListView
+                          itemCount: box.length,
+                          itemBuilder: (context, index) {
+                            final ReminderModel reminder = box.getAt(index)!;
+
+                            return Dismissible(
+                              key: Key(reminder.id),
+                              direction: DismissDirection.endToStart,
+                              onDismissed: (direction) {
+                                reminder.delete();
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(content: Text("Reminder deleted")),
+                                );
+                              },
+                              background: Container(
+                                alignment: Alignment.centerRight,
+                                padding: EdgeInsets.symmetric(horizontal: 20),
+                                color: Colors.red,
+                                child: Icon(Icons.delete, color: Colors.white),
+                              ),
+                              child: GestureDetector(
+                                onTap: () async {
+                                  await Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          AddReminderScreen(reminder: reminder),
+                                    ),
+                                  );
+                                  setState(() {});
+                                },
+                                child: AnimatedContainer(
+                                  duration: Duration(milliseconds: 300),
+                                  curve: Curves.easeInOut,
+                                  margin: EdgeInsets.symmetric(vertical: 8),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(12),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.grey.withOpacity(0.2),
+                                        blurRadius: 6,
+                                        offset: Offset(0, 2),
+                                      ),
+                                    ],
+                                  ),
+                                  child: ListTile(
+                                    title: Text(reminder.message,
+                                        style: GoogleFonts.notoSans(fontSize: 16)),
+                                    subtitle: Text(
+                                      DateFormat.jm().format(reminder.time),
+                                      style: GoogleFonts.notoSans(color: Colors.grey[600]),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            );
+                          },
+                        );
+                      },
+                    ),
                 ],
               ),
             ),
