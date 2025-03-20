@@ -1019,24 +1019,91 @@ void initState() {
   );
 }
 
+
   Widget _buildMotivationalMessage() {
-    return Card(
-      elevation: 4,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      child: const Padding(
-        padding: EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text("Motivational Message", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, fontFamily: 'Noto Sans')),
-            SizedBox(height: 8),
-            Text(
-              "You're doing great! Keep track of your finances, and you'll reach your goals in no time.",
-              style: TextStyle(fontSize: 16, fontFamily: 'Noto Sans'),
-            ),
-          ],
+  final List<String> messages = [
+    "Small steps lead to big savings. Keep going! 🚀",
+    "Every penny saved is a penny earned. Stay focused! 💰",
+    "Your future self will thank you for your financial discipline today. 😊",
+    "Financial freedom begins with tracking your expenses. 📊",
+    "Celebrate your progress, no matter how small! 🎉",
+    "Plan your spending, track your saving, and enjoy your journey. 🗺️",
+    "Dream big, save smart, and make it happen! ✨",
+    "Don't count the days, make the days count towards your goals! 💪",
+    "The best time to start saving is now. 🌱",
+    "Believe you can and you're halfway there! 👍",
+  ];
+
+  final Random random = Random();
+  int _messageIndex = 0; // Declare _messageIndex outside the builder functions
+
+  return StatefulBuilder(
+    builder: (BuildContext context, StateSetter setState) {
+      // Initialize the message index on the first build
+      Future.delayed(Duration.zero, () {
+        if (_messageIndex == 0 && context.mounted) {
+          setState(() {
+            _messageIndex = random.nextInt(messages.length);
+          });
+        }
+      });
+
+      // Function to change the message
+      void _changeMessage() {
+        if (context.mounted) {
+          setState(() {
+            _messageIndex = random.nextInt(messages.length);
+          });
+          Future.delayed(const Duration(seconds: 5), _changeMessage);
+        }
+      }
+
+      // Start the message change timer after the first build
+      Future.delayed(const Duration(seconds: 5), _changeMessage);
+
+      return Card(
+        elevation: 4,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        color: Colors.white, // A subtle background color
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Icon(Icons.lightbulb_outline, color: Colors.blue[300], size: 28),
+                  SizedBox(width: 8),
+                  Text("Tip of the Day", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, fontFamily: 'Noto Sans', color: Colors.blue[800])),
+                ],
+              ),
+              SizedBox(height: 12),
+              AnimatedSwitcher(
+                duration: const Duration(milliseconds: 600),
+                transitionBuilder: (Widget child, Animation<double> animation) {
+                  return FadeTransition(
+                    opacity: animation,
+                    child: child,
+                  );
+                },
+                child: Text(
+                  messages[_messageIndex % messages.length],
+                  key: ValueKey<int>(_messageIndex),
+                  style: TextStyle(fontSize: 16, fontFamily: 'Noto Sans', color: Colors.blueGrey[700]),
+                  textAlign: TextAlign.left,
+                ),
+              ),
+              // Optional: Add a subtle image or graphic here
+              // SizedBox(height: 12),
+              // Align(
+              //   alignment: Alignment.bottomRight,
+              //   child: Image.asset('assets/your_motivational_image.png', height: 40), // Replace with your asset
+              // ),
+            ],
+          ),
         ),
-      ),
-    );
-  }
+      );
+    },
+  );
+}
 }
