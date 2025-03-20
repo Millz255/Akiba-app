@@ -153,6 +153,7 @@ class _SavingsGoalsScreenState extends State<SavingsGoalsScreen>
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Scaffold(
+            backgroundColor: const Color.fromARGB(255, 196, 228, 253),
             body: Center(child: CircularProgressIndicator()),
           );
         } else {
@@ -238,7 +239,7 @@ class _SavingsGoalsScreenState extends State<SavingsGoalsScreen>
                                         LinearProgressIndicator(
                                           value: progress / 100,
                                           backgroundColor:
-                                              Colors.grey.shade300,
+                                              const Color.fromARGB(255, 196, 228, 253),
                                           valueColor:
                                               AlwaysStoppedAnimation<Color>(
                                                   Colors.blue),

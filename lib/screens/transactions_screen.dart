@@ -82,7 +82,7 @@ class _TransactionsScreenState extends State<TransactionsScreen>
     double _quarterScreenFactor = quarterScreenHeight / screenHeight;
 
     return Scaffold(
-      backgroundColor: Colors.blue.shade200,
+      backgroundColor: const Color.fromARGB(255, 196, 228, 253),
       body: Stack(
         children: [
           SafeArea(
@@ -406,7 +406,7 @@ class _TransactionsScreenState extends State<TransactionsScreen>
           _fabAnimationController.reverse();
           setState(() {}); // Refresh the UI after adding a transaction
         },
-        backgroundColor: Colors.blue.shade200,
+        backgroundColor: const Color.fromARGB(255, 72, 170, 245),
         elevation: 6,
         child: Icon(Icons.add, size: 30),
       ),

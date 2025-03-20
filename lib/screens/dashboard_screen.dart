@@ -417,7 +417,7 @@ void initState() {
     double _quarterScreenFactor = quarterScreenHeight / screenHeight;
 
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 231, 227, 253),
+      backgroundColor: const Color.fromARGB(255, 196, 228, 253),
       body: Stack(
         children: [
           SafeArea(
