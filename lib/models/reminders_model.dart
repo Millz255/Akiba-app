@@ -16,10 +16,14 @@ class ReminderModel extends HiveObject {
   @HiveField(3)
   bool isEnabled;
 
+  @HiveField(4) // New field for repetition days
+  List<bool> repeatDays; // [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday]
+
   ReminderModel({
     required this.id,
     required this.time,
     required this.message,
     required this.isEnabled,
+    this.repeatDays = const [false, false, false, false, false, false, false], // Default to no repetition
   });
 }

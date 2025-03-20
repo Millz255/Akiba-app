@@ -17,6 +17,8 @@ class _AddReminderScreenState extends State<AddReminderScreen> {
   final _messageController = TextEditingController();
   TimeOfDay? _selectedTime;
   bool _isEnabled = true;
+  bool _repeatDaily = false; // New state for daily repetition
+  List<bool> _selectedDays = [false, false, false, false, false, false, false]; // Monday to Sunday
   late Box<ReminderModel> remindersBox;
 
   @override
@@ -30,6 +32,11 @@ class _AddReminderScreenState extends State<AddReminderScreen> {
         minute: widget.reminder!.time.minute,
       );
       _isEnabled = widget.reminder!.isEnabled;
+      _selectedDays = widget.reminder!.repeatDays;
+      _repeatDaily = _selectedDays.every((day) => day); // If all days are true, consider it daily
+      if (_repeatDaily) {
+        _selectedDays = [false, false, false, false, false, false, false]; // Reset individual days if daily is selected
+      }
     } else {
       _selectedTime = TimeOfDay.now();
     }
@@ -58,6 +65,11 @@ class _AddReminderScreenState extends State<AddReminderScreen> {
         _selectedTime!.minute,
       );
 
+      List<bool> finalRepeatDays = List.from(_selectedDays);
+      if (_repeatDaily) {
+        finalRepeatDays = [true, true, true, true, true, true, true];
+      }
+
       if (widget.reminder == null) {
         remindersBox.add(
           ReminderModel(
@@ -65,12 +77,14 @@ class _AddReminderScreenState extends State<AddReminderScreen> {
             time: reminderTime,
             message: _messageController.text,
             isEnabled: _isEnabled,
+            repeatDays: finalRepeatDays,
           ),
         );
       } else {
         widget.reminder!.time = reminderTime;
         widget.reminder!.message = _messageController.text;
         widget.reminder!.isEnabled = _isEnabled;
+        widget.reminder!.repeatDays = finalRepeatDays;
         widget.reminder!.save();
       }
       Navigator.pop(context);
@@ -90,7 +104,6 @@ class _AddReminderScreenState extends State<AddReminderScreen> {
           key: _formKey,
           child: Column(
             children: [
-              // Time picker row with a smooth transition
               GestureDetector(
                 onTap: _pickTime,
                 child: Container(
@@ -114,7 +127,6 @@ class _AddReminderScreenState extends State<AddReminderScreen> {
                 ),
               ),
               SizedBox(height: 16),
-              // Reminder message
               TextFormField(
                 controller: _messageController,
                 decoration: InputDecoration(
@@ -128,7 +140,6 @@ class _AddReminderScreenState extends State<AddReminderScreen> {
                     value == null || value.isEmpty ? "Enter a message" : null,
               ),
               SizedBox(height: 16),
-              // Enable/disable toggle
               SwitchListTile(
                 title: Text(
                   "Enable Reminder",
@@ -142,8 +153,40 @@ class _AddReminderScreenState extends State<AddReminderScreen> {
                   });
                 },
               ),
+              SizedBox(height: 16),
+              CheckboxListTile(
+                title: Text("Repeat Daily", style: TextStyle(color: Colors.blue)),
+                value: _repeatDaily,
+                activeColor: Colors.blue,
+                onChanged: (value) {
+                  setState(() {
+                    _repeatDaily = value!;
+                    if (_repeatDaily) {
+                      _selectedDays = [false, false, false, false, false, false, false]; // Uncheck individual days
+                    }
+                  });
+                },
+              ),
+              if (!_repeatDaily)
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Repeat On:", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue)),
+                    Wrap(
+                      spacing: 8.0,
+                      children: [
+                        _buildDayCheckbox("Mon", 0),
+                        _buildDayCheckbox("Tue", 1),
+                        _buildDayCheckbox("Wed", 2),
+                        _buildDayCheckbox("Thu", 3),
+                        _buildDayCheckbox("Fri", 4),
+                        _buildDayCheckbox("Sat", 5),
+                        _buildDayCheckbox("Sun", 6),
+                      ],
+                    ),
+                  ],
+                ),
               Spacer(),
-              // Save button with an animation on tap
               ElevatedButton(
                 onPressed: _saveReminder,
                 style: ElevatedButton.styleFrom(
@@ -160,6 +203,21 @@ class _AddReminderScreenState extends State<AddReminderScreen> {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildDayCheckbox(String day, int index) {
+    return FilterChip(
+      label: Text(day),
+      selected: _selectedDays[index],
+      onSelected: (bool selected) {
+        setState(() {
+          _selectedDays[index] = selected;
+          if (selected && _repeatDaily) {
+            _repeatDaily = false; // Uncheck daily if a specific day is selected
+          }
+        });
+      },
     );
   }
 }
