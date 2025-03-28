@@ -14,7 +14,7 @@ import '../screens/reminders_screen.dart';
 import '../screens/reports_screen.dart';
 import '../screens/about_screen.dart';
 import '../models/transaction_model.dart';
-import '../models/savings_goal_model.dart';
+import '../models/savings_goal_model.dart'; 
 import '../models/user_profile.dart';
 
 class DashboardScreen extends StatefulWidget {
