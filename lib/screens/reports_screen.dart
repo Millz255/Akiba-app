@@ -121,7 +121,7 @@ class _ReportsExportScreenState extends State<ReportsExportScreen>
             saving.dateTime.isBefore(_selectedDateRange.end);
       }).toList();
       debugPrint('_fetchSavingsData: filteredSavings.length = ${filteredSavings.length}');
-      debugPrint('_fetchSavingsData: _selectedDateRange = ${_selectedDateRange}');
+      debugPrint('_fetchSavingsData: _selectedDateRange = $_selectedDateRange');
 
       if (mounted) {
         setState(() {
@@ -181,8 +181,8 @@ class _ReportsExportScreenState extends State<ReportsExportScreen>
       reportText += "\n";
       reportText += "Total Income: Tzs ${_calculateTotalIncome().toStringAsFixed(2)}\n";
       reportText += "Total Expenses: Tzs ${_calculateTotalExpenses().toStringAsFixed(2)}\n";
-      double _calculateTotalBalance() => _calculateTotalIncome() - _calculateTotalExpenses();
-      reportText += "Total Balance: Tzs ${_calculateTotalBalance().toStringAsFixed(2)}\n";
+      double calculateTotalBalance() => _calculateTotalIncome() - _calculateTotalExpenses();
+      reportText += "Total Balance: Tzs ${calculateTotalBalance().toStringAsFixed(2)}\n";
     }
     debugPrint('_generateReport: reportText before setState = \n$reportText');
 
@@ -333,9 +333,9 @@ Widget build(BuildContext context) {
   final bottomNavBarHeight = kBottomNavigationBarHeight;
   final quarterScreenHeight = screenHeight / 4;
 
-  double _initialChildSizeFactor = bottomNavBarHeight / screenHeight;
-  double _minChildSizeFactor = bottomNavBarHeight / screenHeight;
-  double _quarterScreenFactor = quarterScreenHeight / screenHeight;
+  double initialChildSizeFactor = bottomNavBarHeight / screenHeight;
+  double minChildSizeFactor = bottomNavBarHeight / screenHeight;
+  double quarterScreenFactor = quarterScreenHeight / screenHeight;
 
   return Scaffold(
     body: Stack(
@@ -454,15 +454,15 @@ Widget build(BuildContext context) {
                         const SizedBox(height: 20),
                         ElevatedButton(
                           onPressed: _generateReport,
-                          child: _isGenerating
-                              ? const CircularProgressIndicator(color: Colors.white)
-                              : const Text("Generate Report", style: TextStyle(color: Colors.white, fontSize: 16)),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.blue,
                             foregroundColor: Colors.white,
                             padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 14),
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                           ),
+                          child: _isGenerating
+                              ? const CircularProgressIndicator(color: Colors.white)
+                              : const Text("Generate Report", style: TextStyle(color: Colors.white, fontSize: 16)),
                         ),
                         const SizedBox(height: 20),
                         Card(
@@ -493,7 +493,7 @@ Widget build(BuildContext context) {
           child: GestureDetector(
             onTapDown: (details) {
               _draggableController.animateTo(
-                _quarterScreenFactor,
+                quarterScreenFactor,
                 duration: const Duration(milliseconds: 300),
                 curve: Curves.easeInOut,
               );
@@ -503,11 +503,11 @@ Widget build(BuildContext context) {
             },
             child: DraggableScrollableSheet(
               controller: _draggableController,
-              initialChildSize: _initialChildSizeFactor,
-              minChildSize: _minChildSizeFactor,
-              maxChildSize: _quarterScreenFactor,
+              initialChildSize: initialChildSizeFactor,
+              minChildSize: minChildSizeFactor,
+              maxChildSize: quarterScreenFactor,
               snap: true,
-              snapSizes: [_initialChildSizeFactor, _quarterScreenFactor],
+              snapSizes: [initialChildSizeFactor, quarterScreenFactor],
               builder: (BuildContext context, ScrollController scrollController) {
                 return Container(
                   decoration: BoxDecoration(
@@ -564,7 +564,7 @@ Widget build(BuildContext context) {
                                 );
                               } else if (item['route'] == '/reports') {
                                 _draggableController.animateTo(
-                                  _minChildSizeFactor,
+                                  minChildSizeFactor,
                                   duration: const Duration(milliseconds: 300),
                                   curve: Curves.easeInOut,
                                 );

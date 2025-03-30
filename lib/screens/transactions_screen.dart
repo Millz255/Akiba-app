@@ -77,9 +77,9 @@ class _TransactionsScreenState extends State<TransactionsScreen>
     final bottomNavBarHeight = kBottomNavigationBarHeight;
     final quarterScreenHeight = screenHeight / 4;
 
-    double _initialChildSizeFactor = bottomNavBarHeight / screenHeight;
-    double _minChildSizeFactor = bottomNavBarHeight / screenHeight;
-    double _quarterScreenFactor = quarterScreenHeight / screenHeight;
+    double initialChildSizeFactor = bottomNavBarHeight / screenHeight;
+    double minChildSizeFactor = bottomNavBarHeight / screenHeight;
+    double quarterScreenFactor = quarterScreenHeight / screenHeight;
 
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 196, 228, 253),
@@ -297,7 +297,7 @@ class _TransactionsScreenState extends State<TransactionsScreen>
             child: GestureDetector(
               onTapDown: (details) {
                 _draggableController.animateTo(
-                  _quarterScreenFactor,
+                  quarterScreenFactor,
                   duration: const Duration(milliseconds: 300),
                   curve: Curves.easeInOut,
                 );
@@ -307,11 +307,11 @@ class _TransactionsScreenState extends State<TransactionsScreen>
               },
               child: DraggableScrollableSheet(
                 controller: _draggableController,
-                initialChildSize: _initialChildSizeFactor,
-                minChildSize: _minChildSizeFactor,
-                maxChildSize: _quarterScreenFactor,
+                initialChildSize: initialChildSizeFactor,
+                minChildSize: minChildSizeFactor,
+                maxChildSize: quarterScreenFactor,
                 snap: true,
-                snapSizes: [_initialChildSizeFactor, _quarterScreenFactor],
+                snapSizes: [initialChildSizeFactor, quarterScreenFactor],
                 builder: (BuildContext context, ScrollController scrollController) {
                   return Container(
                     decoration: const BoxDecoration(
@@ -350,7 +350,7 @@ class _TransactionsScreenState extends State<TransactionsScreen>
                                   );
                                 } else if (item['route'] == '/transactions') {
                                   _draggableController.animateTo(
-                                    _minChildSizeFactor,
+                                    minChildSizeFactor,
                                     duration: const Duration(milliseconds: 300),
                                     curve: Curves.easeInOut,
                                   );

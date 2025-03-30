@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
-import 'package:intl/intl.dart';
 import '../models/savings_goal_model.dart';
 
 class AddSavingsGoalScreen extends StatefulWidget {

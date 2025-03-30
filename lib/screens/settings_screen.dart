@@ -120,9 +120,9 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
     final bottomNavBarHeight = kBottomNavigationBarHeight;
     final quarterScreenHeight = screenHeight / 4;
 
-    double _initialChildSizeFactor = bottomNavBarHeight / screenHeight;
-    double _minChildSizeFactor = bottomNavBarHeight / screenHeight;
-    double _quarterScreenFactor = quarterScreenHeight / screenHeight;
+    double initialChildSizeFactor = bottomNavBarHeight / screenHeight;
+    double minChildSizeFactor = bottomNavBarHeight / screenHeight;
+    double quarterScreenFactor = quarterScreenHeight / screenHeight;
 
     return Scaffold(
       body: Stack(
@@ -179,7 +179,7 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
             child: GestureDetector(
               onTapDown: (details) {
                 _draggableController.animateTo(
-                  _quarterScreenFactor,
+                  quarterScreenFactor,
                   duration: const Duration(milliseconds: 300),
                   curve: Curves.easeInOut,
                 );
@@ -189,11 +189,11 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
               },
               child: DraggableScrollableSheet(
                 controller: _draggableController,
-                initialChildSize: _initialChildSizeFactor,
-                minChildSize: _minChildSizeFactor,
-                maxChildSize: _quarterScreenFactor,
+                initialChildSize: initialChildSizeFactor,
+                minChildSize: minChildSizeFactor,
+                maxChildSize: quarterScreenFactor,
                 snap: true,
-                snapSizes: [_initialChildSizeFactor, _quarterScreenFactor],
+                snapSizes: [initialChildSizeFactor, quarterScreenFactor],
                 builder: (BuildContext context, ScrollController scrollController) {
                   return Container(
                     decoration: const BoxDecoration(
@@ -262,7 +262,7 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
                                   );
                                 } else if (item['route'] == '/settings') {
                                   _draggableController.animateTo(
-                                    _minChildSizeFactor,
+                                    minChildSizeFactor,
                                     duration: const Duration(milliseconds: 300),
                                     curve: Curves.easeInOut,
                                   );

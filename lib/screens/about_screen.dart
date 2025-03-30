@@ -60,9 +60,9 @@ class _AboutScreenState extends State<AboutScreen> with SingleTickerProviderStat
     final bottomNavBarHeight = kBottomNavigationBarHeight;
     final quarterScreenHeight = screenHeight / 4;
 
-    double _initialChildSizeFactor = bottomNavBarHeight / screenHeight;
-    double _minChildSizeFactor = bottomNavBarHeight / screenHeight;
-    double _quarterScreenFactor = quarterScreenHeight / screenHeight;
+    double initialChildSizeFactor = bottomNavBarHeight / screenHeight;
+    double minChildSizeFactor = bottomNavBarHeight / screenHeight;
+    double quarterScreenFactor = quarterScreenHeight / screenHeight;
 
     return Scaffold(
       body: Stack(
@@ -85,7 +85,7 @@ class _AboutScreenState extends State<AboutScreen> with SingleTickerProviderStat
             child: GestureDetector(
               onTapDown: (details) {
                 _draggableController.animateTo(
-                  _quarterScreenFactor,
+                  quarterScreenFactor,
                   duration: const Duration(milliseconds: 300),
                   curve: Curves.easeInOut,
                 );
@@ -95,11 +95,11 @@ class _AboutScreenState extends State<AboutScreen> with SingleTickerProviderStat
               },
               child: DraggableScrollableSheet(
                 controller: _draggableController,
-                initialChildSize: _initialChildSizeFactor,
-                minChildSize: _minChildSizeFactor,
-                maxChildSize: _quarterScreenFactor,
+                initialChildSize: initialChildSizeFactor,
+                minChildSize: minChildSizeFactor,
+                maxChildSize: quarterScreenFactor,
                 snap: true,
-                snapSizes: [_initialChildSizeFactor, _quarterScreenFactor],
+                snapSizes: [initialChildSizeFactor, quarterScreenFactor],
                 builder: (BuildContext context, ScrollController scrollController) {
                   return Container(
                     decoration: const BoxDecoration(
@@ -159,7 +159,7 @@ class _AboutScreenState extends State<AboutScreen> with SingleTickerProviderStat
                                   );
                                 } else if (item['route'] == '/about') {
                                   _draggableController.animateTo(
-                                    _minChildSizeFactor,
+                                    minChildSizeFactor,
                                     duration: const Duration(milliseconds: 300),
                                     curve: Curves.easeInOut,
                                   );

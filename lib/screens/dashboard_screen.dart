@@ -32,7 +32,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   bool _isSavingsVisible = false;
   final LocalAuthentication _localAuth = LocalAuthentication();
   String userName = "Guest";
-  String _selectedTimeFrame = "3M";
+  final String _selectedTimeFrame = "3M";
   int _currentIndex = 0;
   File? _profileImage;
   UserProfile? _userProfile;
@@ -412,9 +412,9 @@ void initState() {
     final bottomNavBarHeight = kBottomNavigationBarHeight;
     final quarterScreenHeight = screenHeight / 4;
 
-    double _initialChildSizeFactor = bottomNavBarHeight / screenHeight;
-    double _minChildSizeFactor = bottomNavBarHeight / screenHeight;
-    double _quarterScreenFactor = quarterScreenHeight / screenHeight;
+    double initialChildSizeFactor = bottomNavBarHeight / screenHeight;
+    double minChildSizeFactor = bottomNavBarHeight / screenHeight;
+    double quarterScreenFactor = quarterScreenHeight / screenHeight;
 
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 196, 228, 253),
@@ -501,7 +501,7 @@ void initState() {
             child: GestureDetector(
               onTapDown: (details) {
                 _draggableController.animateTo(
-                  _quarterScreenFactor,
+                  quarterScreenFactor,
                   duration: const Duration(milliseconds: 300),
                   curve: Curves.easeInOut,
                 );
@@ -511,11 +511,11 @@ void initState() {
               },
               child: DraggableScrollableSheet(
                 controller: _draggableController,
-                initialChildSize: _initialChildSizeFactor,
-                minChildSize: _minChildSizeFactor,
-                maxChildSize: _quarterScreenFactor,
+                initialChildSize: initialChildSizeFactor,
+                minChildSize: minChildSizeFactor,
+                maxChildSize: quarterScreenFactor,
                 snap: true,
-                snapSizes: [_initialChildSizeFactor, _quarterScreenFactor],
+                snapSizes: [initialChildSizeFactor, quarterScreenFactor],
                 builder: (BuildContext context, ScrollController scrollController) {
                   return Container(
                     decoration: BoxDecoration(
@@ -1035,31 +1035,31 @@ void initState() {
   ];
 
   final Random random = Random();
-  int _messageIndex = 0; // Declare _messageIndex outside the builder functions
+  int messageIndex = 0; // Declare _messageIndex outside the builder functions
 
   return StatefulBuilder(
     builder: (BuildContext context, StateSetter setState) {
       // Initialize the message index on the first build
       Future.delayed(Duration.zero, () {
-        if (_messageIndex == 0 && context.mounted) {
+        if (messageIndex == 0 && context.mounted) {
           setState(() {
-            _messageIndex = random.nextInt(messages.length);
+            messageIndex = random.nextInt(messages.length);
           });
         }
       });
 
       // Function to change the message
-      void _changeMessage() {
+      void changeMessage() {
         if (context.mounted) {
           setState(() {
-            _messageIndex = random.nextInt(messages.length);
+            messageIndex = random.nextInt(messages.length);
           });
-          Future.delayed(const Duration(seconds: 5), _changeMessage);
+          Future.delayed(const Duration(seconds: 5), changeMessage);
         }
       }
 
       // Start the message change timer after the first build
-      Future.delayed(const Duration(seconds: 7), _changeMessage);
+      Future.delayed(const Duration(seconds: 7), changeMessage);
 
       return Card(
         elevation: 4,
@@ -1087,8 +1087,8 @@ void initState() {
                   );
                 },
                 child: Text(
-                  messages[_messageIndex % messages.length],
-                  key: ValueKey<int>(_messageIndex),
+                  messages[messageIndex % messages.length],
+                  key: ValueKey<int>(messageIndex),
                   style: TextStyle(fontSize: 16, fontFamily: 'Noto Sans', color: Colors.blueGrey[700]),
                   textAlign: TextAlign.left,
                 ),

@@ -144,9 +144,9 @@ class _SavingsGoalsScreenState extends State<SavingsGoalsScreen>
     final quarterScreenHeight = screenHeight / 4;
 
     // Adjust these factors to make the icons slightly visible
-    double _initialChildSizeFactor = (bottomNavBarHeight + 15) / screenHeight;
-    double _minChildSizeFactor = (bottomNavBarHeight + 15) / screenHeight;
-    double _quarterScreenFactor = quarterScreenHeight / screenHeight;
+    double initialChildSizeFactor = (bottomNavBarHeight + 15) / screenHeight;
+    double minChildSizeFactor = (bottomNavBarHeight + 15) / screenHeight;
+    double quarterScreenFactor = quarterScreenHeight / screenHeight;
 
     return FutureBuilder<Box<SavingsGoalModel>>(
       future: _initializeSavingsBox(),
@@ -369,11 +369,11 @@ class _SavingsGoalsScreenState extends State<SavingsGoalsScreen>
                     alignment: Alignment.bottomCenter,
                     child: DraggableScrollableSheet(
                       controller: _draggableController,
-                      initialChildSize: _initialChildSizeFactor,
-                      minChildSize: _minChildSizeFactor,
-                      maxChildSize: _quarterScreenFactor,
+                      initialChildSize: initialChildSizeFactor,
+                      minChildSize: minChildSizeFactor,
+                      maxChildSize: quarterScreenFactor,
                       snap: true,
-                      snapSizes: [_initialChildSizeFactor, _quarterScreenFactor],
+                      snapSizes: [initialChildSizeFactor, quarterScreenFactor],
                       builder: (BuildContext context, ScrollController scrollController) {
                         return Container(
                           decoration: const BoxDecoration(
@@ -416,7 +416,7 @@ class _SavingsGoalsScreenState extends State<SavingsGoalsScreen>
                                     } else if (item['route'] == '/savings') {
                                       // No need to navigate if already on the SavingsGoalsScreen
                                       _draggableController.animateTo(
-                                        _minChildSizeFactor,
+                                        minChildSizeFactor,
                                         duration: const Duration(milliseconds: 300),
                                         curve: Curves.easeInOut,
                                       );
