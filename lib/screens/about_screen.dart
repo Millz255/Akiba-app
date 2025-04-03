@@ -40,9 +40,7 @@ class _AboutScreenState extends State<AboutScreen> with SingleTickerProviderStat
   @override
   void initState() {
     super.initState();
-    // Assign the passed box to a local variable
     _settingsBox = widget.settingsBox;
-    // Fetch user information from the passed box
     _loadUserSettings();
   }
 
