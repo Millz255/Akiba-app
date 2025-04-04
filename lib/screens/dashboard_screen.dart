@@ -1035,18 +1035,15 @@ void initState() {
   ];
 
   final Random random = Random();
-  int messageIndex = 0; // Declare _messageIndex outside the builder functions
+  int messageIndex = 0;
+  bool _timerStarted = false; // Flag to track if the timer has started
 
   return StatefulBuilder(
     builder: (BuildContext context, StateSetter setState) {
       // Initialize the message index on the first build
-      Future.delayed(Duration.zero, () {
-        if (messageIndex == 0 && context.mounted) {
-          setState(() {
-            messageIndex = random.nextInt(messages.length);
-          });
-        }
-      });
+      if (messageIndex == 0 && context.mounted) {
+        messageIndex = random.nextInt(messages.length);
+      }
 
       // Function to change the message
       void changeMessage() {
@@ -1054,17 +1051,20 @@ void initState() {
           setState(() {
             messageIndex = random.nextInt(messages.length);
           });
-          Future.delayed(const Duration(seconds: 5), changeMessage);
+          Future.delayed(const Duration(seconds: 10), changeMessage);
         }
       }
 
-      // Start the message change timer after the first build
-      Future.delayed(const Duration(seconds: 7), changeMessage);
+      // Start the message change timer after the first build, only once
+      if (!_timerStarted && context.mounted) {
+        _timerStarted = true;
+        Future.delayed(const Duration(seconds: 12), changeMessage);
+      }
 
       return Card(
         elevation: 4,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        color: Colors.white, // A subtle background color
+        color: Colors.white,
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
@@ -1093,12 +1093,6 @@ void initState() {
                   textAlign: TextAlign.left,
                 ),
               ),
-              // Optional: Add a subtle image or graphic here
-              // SizedBox(height: 12),
-              // Align(
-              //   alignment: Alignment.bottomRight,
-              //   child: Image.asset('assets/your_motivational_image.png', height: 40), // Replace with your asset
-              // ),
             ],
           ),
         ),
