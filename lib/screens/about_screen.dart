@@ -330,9 +330,9 @@ class _AboutScreenState extends State<AboutScreen> with SingleTickerProviderStat
           value,
           style: TextStyle(
             fontSize: 14,
-            color: Colors.blue, // Make the value tappable
+            color: Colors.blue,
             fontFamily: 'Noto Sans',
-            decoration: TextDecoration.underline, // Indicate it's tappable
+            decoration: TextDecoration.underline,
           ),
         ),
       ),
