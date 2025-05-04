@@ -1,0 +1,58 @@
+com.akibaapp.akiba.app-jetified-window-java-1.2.0-0 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\07179a137c9f7a0e9e254caeb145d12d\transformed\jetified-window-java-1.2.0\res
+com.akibaapp.akiba.app-jetified-activity-1.9.3-1 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\083004a9a55c9fa0570a7745993a4f86\transformed\jetified-activity-1.9.3\res
+com.akibaapp.akiba.app-jetified-savedstate-ktx-1.2.1-2 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\0d8eb7d27f284463ca81ec9f0ce0bcb8\transformed\jetified-savedstate-ktx-1.2.1\res
+com.akibaapp.akiba.app-coordinatorlayout-1.0.0-3 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\11b617703f42a40c11f8a62ef0770c46\transformed\coordinatorlayout-1.0.0\res
+com.akibaapp.akiba.app-jetified-lifecycle-process-2.7.0-4 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\124aa2cbfea691c98683be11873c1bde\transformed\jetified-lifecycle-process-2.7.0\res
+com.akibaapp.akiba.app-appcompat-1.2.0-5 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\192d24178d54048e80c43876378fc61a\transformed\appcompat-1.2.0\res
+com.akibaapp.akiba.app-slidingpanelayout-1.2.0-6 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\2255c037859b2afb3d89d9ce0c456c20\transformed\slidingpanelayout-1.2.0\res
+com.akibaapp.akiba.app-jetified-tracing-1.2.0-7 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\3c93fd6aa34dc6d20931fb6b01575a6e\transformed\jetified-tracing-1.2.0\res
+com.akibaapp.akiba.app-biometric-1.1.0-8 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\4508a6e53ac282c49cb1c11ba6efeefb\transformed\biometric-1.1.0\res
+com.akibaapp.akiba.app-browser-1.8.0-9 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\479438d8d1306bf8b11ed9865ec91414\transformed\browser-1.8.0\res
+com.akibaapp.akiba.app-jetified-lifecycle-viewmodel-ktx-2.7.0-10 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\4cd288aee8a00ed8a1760d3e5eb61880\transformed\jetified-lifecycle-viewmodel-ktx-2.7.0\res
+com.akibaapp.akiba.app-jetified-core-1.0.0-11 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\4e1af12b5d735088bce461672009977f\transformed\jetified-core-1.0.0\res
+com.akibaapp.akiba.app-core-runtime-2.2.0-12 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\5410a71b5430547dee193609b7e8e6fb\transformed\core-runtime-2.2.0\res
+com.akibaapp.akiba.app-jetified-datastore-release-13 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\5f909ef303b25f63afaf445784432d85\transformed\jetified-datastore-release\res
+com.akibaapp.akiba.app-jetified-window-1.2.0-14 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\63daa2e8cdaaa7dafe1fa93c8b12fc34\transformed\jetified-window-1.2.0\res
+com.akibaapp.akiba.app-jetified-profileinstaller-1.3.1-15 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\6b533afd00cdf2e5096f087b3b076764\transformed\jetified-profileinstaller-1.3.1\res
+com.akibaapp.akiba.app-lifecycle-livedata-2.7.0-16 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\7653f8896e728d10c80138ce283b4a46\transformed\lifecycle-livedata-2.7.0\res
+com.akibaapp.akiba.app-media-1.1.0-17 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\79846bffc66d5a319a6fb0515a651759\transformed\media-1.1.0\res
+com.akibaapp.akiba.app-jetified-lifecycle-viewmodel-savedstate-2.7.0-18 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\798fe77594a741e8bdaaf041f776e0d4\transformed\jetified-lifecycle-viewmodel-savedstate-2.7.0\res
+com.akibaapp.akiba.app-core-1.13.1-19 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\7adc1684486a9138323a9763b535c2a8\transformed\core-1.13.1\res
+com.akibaapp.akiba.app-jetified-activity-ktx-1.9.3-20 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\84778aafda8fef8c20faff3b212e9407\transformed\jetified-activity-ktx-1.9.3\res
+com.akibaapp.akiba.app-jetified-startup-runtime-1.1.1-21 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\99a6f43cfc23928b35a0326d0e058f8b\transformed\jetified-startup-runtime-1.1.1\res
+com.akibaapp.akiba.app-fragment-1.7.1-22 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\a8403ecef0b944373da1c50d9c5298a5\transformed\fragment-1.7.1\res
+com.akibaapp.akiba.app-lifecycle-runtime-2.7.0-23 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\ae1deebf62ed89e6b643307bcb3b1863\transformed\lifecycle-runtime-2.7.0\res
+com.akibaapp.akiba.app-jetified-savedstate-1.2.1-24 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\ae575b4c2135f46a76a353d1c8edbf3b\transformed\jetified-savedstate-1.2.1\res
+com.akibaapp.akiba.app-jetified-lifecycle-runtime-ktx-2.7.0-25 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\b2699dcd299fa48ef54ba54170d0c0f2\transformed\jetified-lifecycle-runtime-ktx-2.7.0\res
+com.akibaapp.akiba.app-jetified-lifecycle-livedata-core-ktx-2.7.0-26 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\b2d6d95f9fc00a41f8bf691f9aea2a24\transformed\jetified-lifecycle-livedata-core-ktx-2.7.0\res
+com.akibaapp.akiba.app-transition-1.4.1-27 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\b6a50441583c4076040e234d73867e98\transformed\transition-1.4.1\res
+com.akibaapp.akiba.app-jetified-appcompat-resources-1.2.0-28 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\bd0294584d03ecbc22ad7dc45ad94f95\transformed\jetified-appcompat-resources-1.2.0\res
+com.akibaapp.akiba.app-lifecycle-livedata-core-2.7.0-29 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\be9e722ea13f7de0b393c6a13b06d9e9\transformed\lifecycle-livedata-core-2.7.0\res
+com.akibaapp.akiba.app-jetified-annotation-experimental-1.4.0-30 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\c2031fdf69ed5d7353e36ec28b2b407e\transformed\jetified-annotation-experimental-1.4.0\res
+com.akibaapp.akiba.app-lifecycle-viewmodel-2.7.0-31 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\c657868acd01ea3a743add476e1e29da\transformed\lifecycle-viewmodel-2.7.0\res
+com.akibaapp.akiba.app-jetified-core-ktx-1.13.1-32 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\d7d5ed59e1a00639c812a1fe302bde05\transformed\jetified-core-ktx-1.13.1\res
+com.akibaapp.akiba.app-recyclerview-1.0.0-33 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\df946f3e16d56d0fcece654f0c450818\transformed\recyclerview-1.0.0\res
+com.akibaapp.akiba.app-preference-1.2.1-34 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\e5a224bfdf0f8e7ba3c6ca6f8fdc182b\transformed\preference-1.2.1\res
+com.akibaapp.akiba.app-jetified-datastore-core-release-35 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\e9c5870457c9ee4c3db7f66c8183452f\transformed\jetified-datastore-core-release\res
+com.akibaapp.akiba.app-jetified-datastore-preferences-release-36 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\ecbc19381dbaa6b72264e893ffaabf7b\transformed\jetified-datastore-preferences-release\res
+com.akibaapp.akiba.app-jetified-fragment-ktx-1.7.1-37 C:\Users\mgimw\.gradle\caches\8.10.2\transforms\f007e4d1716c2f1fd1527bff0b6c8176\transformed\jetified-fragment-ktx-1.7.1\res
+com.akibaapp.akiba.app-packaged_res-38 C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\device_info_plus-11.4.0\android\build\intermediates\packaged_res\release
+com.akibaapp.akiba.app-packaged_res-39 C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\emoji_picker_flutter-4.3.0\android\build\intermediates\packaged_res\release
+com.akibaapp.akiba.app-packaged_res-40 C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_local_notifications-18.0.1\android\build\intermediates\packaged_res\release
+com.akibaapp.akiba.app-packaged_res-41 C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_localization-0.3.2\android\build\intermediates\packaged_res\release
+com.akibaapp.akiba.app-packaged_res-42 C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_plugin_android_lifecycle-2.0.28\android\build\intermediates\packaged_res\release
+com.akibaapp.akiba.app-packaged_res-43 C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\image_picker_android-0.8.12+23\android\build\intermediates\packaged_res\release
+com.akibaapp.akiba.app-packaged_res-44 C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\local_auth_android-1.0.49\android\build\intermediates\packaged_res\release
+com.akibaapp.akiba.app-packaged_res-45 C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_android-2.2.17\android\build\intermediates\packaged_res\release
+com.akibaapp.akiba.app-packaged_res-46 C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\printing-5.14.2\android\build\intermediates\packaged_res\release
+com.akibaapp.akiba.app-packaged_res-47 C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-10.1.4\android\build\intermediates\packaged_res\release
+com.akibaapp.akiba.app-packaged_res-48 C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_android-2.4.10\android\build\intermediates\packaged_res\release
+com.akibaapp.akiba.app-packaged_res-49 C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_android-6.3.16\android\build\intermediates\packaged_res\release
+com.akibaapp.akiba.app-pngs-50 C:\Users\mgimw\Flutter Projects\akiba\android\app\build\generated\res\pngs\release
+com.akibaapp.akiba.app-resValues-51 C:\Users\mgimw\Flutter Projects\akiba\android\app\build\generated\res\resValues\release
+com.akibaapp.akiba.app-packageReleaseResources-52 C:\Users\mgimw\Flutter Projects\akiba\android\app\build\intermediates\incremental\release\packageReleaseResources\merged.dir
+com.akibaapp.akiba.app-packageReleaseResources-53 C:\Users\mgimw\Flutter Projects\akiba\android\app\build\intermediates\incremental\release\packageReleaseResources\stripped.dir
+com.akibaapp.akiba.app-merged-not-compiled-resources-54 C:\Users\mgimw\Flutter Projects\akiba\android\app\build\intermediates\merged-not-compiled-resources\release
+com.akibaapp.akiba.app-merged_res-55 C:\Users\mgimw\Flutter Projects\akiba\android\app\build\intermediates\merged_res\release
+com.akibaapp.akiba.app-main-56 C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\res
+com.akibaapp.akiba.app-release-57 C:\Users\mgimw\Flutter Projects\akiba\android\app\src\release\res

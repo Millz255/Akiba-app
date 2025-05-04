@@ -1,0 +1,308 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.akibaapp.akiba"
+4    android:versionCode="2"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="35" />
+10
+11    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+11-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:2:1-68
+11-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:2:18-65
+12    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+12-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:3:1-70
+12-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:3:18-67
+13    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+13-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:4:1-76
+13-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:4:18-74
+14    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+14-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:5:1-72
+14-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:5:18-70
+15    <!--
+16         Required to query activities that can process text, see:
+17         https://developer.android.com/training/package-visibility and
+18         https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.
+19
+20         In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin.
+21    -->
+22    <queries>
+22-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:50:5-55:15
+23        <intent>
+23-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:51:9-54:18
+24            <action android:name="android.intent.action.PROCESS_TEXT" />
+24-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:52:13-72
+24-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:52:21-70
+25
+26            <data android:mimeType="text/plain" />
+26-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:53:13-50
+26-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:53:19-48
+27        </intent>
+28    </queries>
+29
+30    <uses-permission android:name="android.permission.VIBRATE" />
+30-->[:flutter_local_notifications] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_local_notifications-18.0.1\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:7:5-66
+30-->[:flutter_local_notifications] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_local_notifications-18.0.1\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:7:22-63
+31
+32    <permission
+32-->[androidx.core:core:1.13.1] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\7adc1684486a9138323a9763b535c2a8\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
+33        android:name="com.akibaapp.akiba.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+33-->[androidx.core:core:1.13.1] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\7adc1684486a9138323a9763b535c2a8\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
+34        android:protectionLevel="signature" />
+34-->[androidx.core:core:1.13.1] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\7adc1684486a9138323a9763b535c2a8\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
+35
+36    <uses-permission android:name="com.akibaapp.akiba.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+36-->[androidx.core:core:1.13.1] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\7adc1684486a9138323a9763b535c2a8\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
+36-->[androidx.core:core:1.13.1] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\7adc1684486a9138323a9763b535c2a8\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
+37
+38    <application
+39        android:name="android.app.Application"
+39-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:10:9-42
+40        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+40-->[androidx.core:core:1.13.1] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\7adc1684486a9138323a9763b535c2a8\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
+41        android:extractNativeLibs="true"
+42        android:icon="@mipmap/ic_launcher"
+42-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:11:9-43
+43        android:label="Akiba" >
+43-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:9:9-30
+44        <activity
+44-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:12:9-33:20
+45            android:name="com.akibaapp.akiba.MainActivity"
+45-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:13:13-41
+46            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+46-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:18:13-163
+47            android:exported="true"
+47-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:14:13-36
+48            android:hardwareAccelerated="true"
+48-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:19:13-47
+49            android:launchMode="singleTop"
+49-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:15:13-43
+50            android:taskAffinity=""
+50-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:16:13-36
+51            android:theme="@style/LaunchTheme"
+51-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:17:13-47
+52            android:windowSoftInputMode="adjustResize" >
+52-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:20:13-55
+53
+54            <!--
+55                 Specifies an Android theme to apply to this Activity as soon as
+56                 the Android process has started. This theme is visible to the user
+57                 while the Flutter UI initializes. After that, this theme continues
+58                 to determine the Window background behind the Flutter UI.
+59            -->
+60            <meta-data
+60-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:25:13-28:17
+61                android:name="io.flutter.embedding.android.NormalTheme"
+61-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:26:15-70
+62                android:resource="@style/NormalTheme" />
+62-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:27:15-52
+63
+64            <intent-filter>
+64-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:29:13-32:29
+65                <action android:name="android.intent.action.MAIN" />
+65-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:30:17-68
+65-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:30:25-66
+66
+67                <category android:name="android.intent.category.LAUNCHER" />
+67-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:31:17-76
+67-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:31:27-74
+68            </intent-filter>
+69        </activity>
+70        <!--
+71             Don't delete the meta-data below.
+72             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+73        -->
+74        <meta-data
+74-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:36:9-38:33
+75            android:name="flutterEmbedding"
+75-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:37:13-44
+76            android:value="2" />
+76-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:38:13-30
+77        <meta-data
+77-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:40:13-42:30
+78            android:name="androidx.biometric.BiometricManager"
+78-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:41:5-55
+79            android:value="enabled" />
+79-->C:\Users\mgimw\Flutter Projects\akiba\android\app\src\main\AndroidManifest.xml:42:5-28
+80
+81        <!--
+82           Declares a provider which allows us to store files to share in
+83           '.../caches/share_plus' and grant the receiving action access
+84        -->
+85        <provider
+85-->[:share_plus] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-10.1.4\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:13:9-21:20
+86            android:name="dev.fluttercommunity.plus.share.ShareFileProvider"
+86-->[:share_plus] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-10.1.4\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:14:13-77
+87            android:authorities="com.akibaapp.akiba.flutter.share_provider"
+87-->[:share_plus] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-10.1.4\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:15:13-74
+88            android:exported="false"
+88-->[:share_plus] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-10.1.4\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:16:13-37
+89            android:grantUriPermissions="true" >
+89-->[:share_plus] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-10.1.4\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:17:13-47
+90            <meta-data
+90-->[:share_plus] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-10.1.4\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:18:13-20:68
+91                android:name="android.support.FILE_PROVIDER_PATHS"
+91-->[:share_plus] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-10.1.4\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:19:17-67
+92                android:resource="@xml/flutter_share_file_paths" />
+92-->[:share_plus] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-10.1.4\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:20:17-65
+93        </provider>
+94        <!--
+95           This manifest declared broadcast receiver allows us to use an explicit
+96           Intent when creating a PendingItent to be informed of the user's choice
+97        -->
+98        <receiver
+98-->[:share_plus] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-10.1.4\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:26:9-32:20
+99            android:name="dev.fluttercommunity.plus.share.SharePlusPendingIntent"
+99-->[:share_plus] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-10.1.4\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:27:13-82
+100            android:exported="false" >
+100-->[:share_plus] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-10.1.4\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:28:13-37
+101            <intent-filter>
+101-->[:share_plus] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-10.1.4\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:29:13-31:29
+102                <action android:name="EXTRA_CHOSEN_COMPONENT" />
+102-->[:share_plus] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-10.1.4\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:30:17-65
+102-->[:share_plus] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-10.1.4\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:30:25-62
+103            </intent-filter>
+104        </receiver>
+105
+106        <provider
+106-->[:image_picker_android] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\image_picker_android-0.8.12+23\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:9:9-17:20
+107            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
+107-->[:image_picker_android] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\image_picker_android-0.8.12+23\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:10:13-82
+108            android:authorities="com.akibaapp.akiba.flutter.image_provider"
+108-->[:image_picker_android] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\image_picker_android-0.8.12+23\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:11:13-74
+109            android:exported="false"
+109-->[:image_picker_android] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\image_picker_android-0.8.12+23\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:12:13-37
+110            android:grantUriPermissions="true" >
+110-->[:image_picker_android] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\image_picker_android-0.8.12+23\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:13:13-47
+111            <meta-data
+111-->[:share_plus] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-10.1.4\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:18:13-20:68
+112                android:name="android.support.FILE_PROVIDER_PATHS"
+112-->[:share_plus] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-10.1.4\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:19:17-67
+113                android:resource="@xml/flutter_image_picker_file_paths" />
+113-->[:share_plus] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-10.1.4\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:20:17-65
+114        </provider> <!-- Trigger Google Play services to install the backported photo picker module. -->
+115        <service
+115-->[:image_picker_android] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\image_picker_android-0.8.12+23\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:19:9-31:19
+116            android:name="com.google.android.gms.metadata.ModuleDependencies"
+116-->[:image_picker_android] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\image_picker_android-0.8.12+23\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:20:13-78
+117            android:enabled="false"
+117-->[:image_picker_android] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\image_picker_android-0.8.12+23\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:21:13-36
+118            android:exported="false" >
+118-->[:image_picker_android] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\image_picker_android-0.8.12+23\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:22:13-37
+119            <intent-filter>
+119-->[:image_picker_android] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\image_picker_android-0.8.12+23\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:24:13-26:29
+120                <action android:name="com.google.android.gms.metadata.MODULE_DEPENDENCIES" />
+120-->[:image_picker_android] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\image_picker_android-0.8.12+23\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:25:17-94
+120-->[:image_picker_android] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\image_picker_android-0.8.12+23\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:25:25-91
+121            </intent-filter>
+122
+123            <meta-data
+123-->[:image_picker_android] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\image_picker_android-0.8.12+23\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:28:13-30:36
+124                android:name="photopicker_activity:0:required"
+124-->[:image_picker_android] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\image_picker_android-0.8.12+23\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:29:17-63
+125                android:value="" />
+125-->[:image_picker_android] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\image_picker_android-0.8.12+23\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:30:17-33
+126        </service>
+127
+128        <activity
+128-->[:url_launcher_android] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_android-6.3.16\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:8:9-11:74
+129            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+129-->[:url_launcher_android] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_android-6.3.16\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:9:13-74
+130            android:exported="false"
+130-->[:url_launcher_android] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_android-6.3.16\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:10:13-37
+131            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+131-->[:url_launcher_android] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_android-6.3.16\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:11:13-71
+132
+133        <provider
+133-->[:printing] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\printing-5.14.2\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:8:9-16:20
+134            android:name="net.nfet.flutter.printing.PrintFileProvider"
+134-->[:printing] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\printing-5.14.2\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:9:13-71
+135            android:authorities="com.akibaapp.akiba.flutter.printing"
+135-->[:printing] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\printing-5.14.2\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:10:13-68
+136            android:exported="false"
+136-->[:printing] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\printing-5.14.2\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:11:13-37
+137            android:grantUriPermissions="true" >
+137-->[:printing] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\printing-5.14.2\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:12:13-47
+138            <meta-data
+138-->[:share_plus] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-10.1.4\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:18:13-20:68
+139                android:name="android.support.FILE_PROVIDER_PATHS"
+139-->[:share_plus] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-10.1.4\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:19:17-67
+140                android:resource="@xml/flutter_printing_file_paths" />
+140-->[:share_plus] C:\Users\mgimw\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-10.1.4\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:20:17-65
+141        </provider>
+142        <provider
+142-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\124aa2cbfea691c98683be11873c1bde\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:24:9-32:20
+143            android:name="androidx.startup.InitializationProvider"
+143-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\124aa2cbfea691c98683be11873c1bde\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:25:13-67
+144            android:authorities="com.akibaapp.akiba.androidx-startup"
+144-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\124aa2cbfea691c98683be11873c1bde\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:26:13-68
+145            android:exported="false" >
+145-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\124aa2cbfea691c98683be11873c1bde\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:27:13-37
+146            <meta-data
+146-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\124aa2cbfea691c98683be11873c1bde\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:29:13-31:52
+147                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+147-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\124aa2cbfea691c98683be11873c1bde\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:30:17-78
+148                android:value="androidx.startup" />
+148-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\124aa2cbfea691c98683be11873c1bde\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:31:17-49
+149            <meta-data
+149-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\6b533afd00cdf2e5096f087b3b076764\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+150                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+150-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\6b533afd00cdf2e5096f087b3b076764\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+151                android:value="androidx.startup" />
+151-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\6b533afd00cdf2e5096f087b3b076764\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+152        </provider>
+153
+154        <uses-library
+154-->[androidx.window:window:1.2.0] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\63daa2e8cdaaa7dafe1fa93c8b12fc34\transformed\jetified-window-1.2.0\AndroidManifest.xml:23:9-25:40
+155            android:name="androidx.window.extensions"
+155-->[androidx.window:window:1.2.0] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\63daa2e8cdaaa7dafe1fa93c8b12fc34\transformed\jetified-window-1.2.0\AndroidManifest.xml:24:13-54
+156            android:required="false" />
+156-->[androidx.window:window:1.2.0] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\63daa2e8cdaaa7dafe1fa93c8b12fc34\transformed\jetified-window-1.2.0\AndroidManifest.xml:25:13-37
+157        <uses-library
+157-->[androidx.window:window:1.2.0] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\63daa2e8cdaaa7dafe1fa93c8b12fc34\transformed\jetified-window-1.2.0\AndroidManifest.xml:26:9-28:40
+158            android:name="androidx.window.sidecar"
+158-->[androidx.window:window:1.2.0] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\63daa2e8cdaaa7dafe1fa93c8b12fc34\transformed\jetified-window-1.2.0\AndroidManifest.xml:27:13-51
+159            android:required="false" />
+159-->[androidx.window:window:1.2.0] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\63daa2e8cdaaa7dafe1fa93c8b12fc34\transformed\jetified-window-1.2.0\AndroidManifest.xml:28:13-37
+160
+161        <receiver
+161-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\6b533afd00cdf2e5096f087b3b076764\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+162            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+162-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\6b533afd00cdf2e5096f087b3b076764\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+163            android:directBootAware="false"
+163-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\6b533afd00cdf2e5096f087b3b076764\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+164            android:enabled="true"
+164-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\6b533afd00cdf2e5096f087b3b076764\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+165            android:exported="true"
+165-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\6b533afd00cdf2e5096f087b3b076764\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+166            android:permission="android.permission.DUMP" >
+166-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\6b533afd00cdf2e5096f087b3b076764\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+167            <intent-filter>
+167-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\6b533afd00cdf2e5096f087b3b076764\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+168                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+168-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\6b533afd00cdf2e5096f087b3b076764\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+168-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\6b533afd00cdf2e5096f087b3b076764\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+169            </intent-filter>
+170            <intent-filter>
+170-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\6b533afd00cdf2e5096f087b3b076764\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+171                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+171-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\6b533afd00cdf2e5096f087b3b076764\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+171-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\6b533afd00cdf2e5096f087b3b076764\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+172            </intent-filter>
+173            <intent-filter>
+173-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\6b533afd00cdf2e5096f087b3b076764\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+174                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+174-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\6b533afd00cdf2e5096f087b3b076764\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+174-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\6b533afd00cdf2e5096f087b3b076764\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+175            </intent-filter>
+176            <intent-filter>
+176-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\6b533afd00cdf2e5096f087b3b076764\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+177                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+177-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\6b533afd00cdf2e5096f087b3b076764\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+177-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\mgimw\.gradle\caches\8.10.2\transforms\6b533afd00cdf2e5096f087b3b076764\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+178            </intent-filter>
+179        </receiver>
+180    </application>
+181
+182</manifest>

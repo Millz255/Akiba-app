@@ -1,0 +1,1 @@
+C:\Users\mgimw\Flutter Projects\akiba\android\app\build\intermediates\cxx\RelWithDebInfo\3m352nw4\obj\arm64-v8a

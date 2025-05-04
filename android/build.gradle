@@ -1,24 +1,36 @@
+// Root build.gradle file
 allprojects {
     repositories {
         google()
         mavenCentral()
     }
 
-    // Add this block here
-    gradle.projectsEvaluated {
-        allprojects.each { project ->
-            if (project.hasProperty("android")) {
-                project.android {
-                    compileOptions {
-                        sourceCompatibility JavaVersion.VERSION_11
-                        targetCompatibility JavaVersion.VERSION_11
-                    }
-                }
+    buildscript {
+    ext.kotlin_version = '1.8.22'
+    dependencies {
+        // Update AGP to 7.4.0 or a compatible version
+        classpath 'com.android.tools.build:gradle:7.4.0'  // Change to 7.4.0 or higher
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        }
+    }
 
-                if (project.hasProperty("kotlinOptions")) {
-                    project.kotlinOptions {
-                        jvmTarget = "11"
-                    }
+}
+
+subprojects {
+    afterEvaluate { project ->
+        if (project.hasProperty("android")) {
+            project.android {
+                compileOptions {
+                    // Java 11 compatibility
+                    sourceCompatibility JavaVersion.VERSION_11
+                    targetCompatibility JavaVersion.VERSION_11
+                }
+            }
+        }
+        if (project.plugins.hasPlugin('kotlin-android')) {
+            project.tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+                kotlinOptions {
+                    jvmTarget = "11"
                 }
             }
         }
