@@ -32,8 +32,6 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
   final _nameController = TextEditingController();
   final _jobController = TextEditingController();
   final _incomeController = TextEditingController();
-  String _selectedCurrencyDropdown = 'TZS';
-  final List<String> currencies = ['TZS'];
   bool _isLoading = true;
   int _currentIndex = 6; // Index for Settings in _navigationItems
   final DraggableScrollableController _draggableController = DraggableScrollableController();
@@ -62,7 +60,6 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
     String? fullName = onboardBox.get('fullName');
     String? job = onboardBox.get('job');
     String? income = onboardBox.get('income');
-    String? preferredCurrencyOnboarding = onboardBox.get('preferredCurrencyOnboarding');
 
     UserProfile? fetchedProfile = userProfileBox.get('currentUserProfile');
 
@@ -73,8 +70,7 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
     _nameController.text = fullName ?? _userProfile.name;
     _jobController.text = job ?? '';
     _incomeController.text = income ?? '';
-    _selectedCurrencyDropdown = preferredCurrencyOnboarding ?? _userProfile.preferredCurrency;
-    _currentCurrency = CurrencyModel(code: _selectedCurrencyDropdown, exchangeRate: 1.0);
+    _currentCurrency = CurrencyModel(code: _userProfile.preferredCurrency, exchangeRate: 1.0);
 
     setState(() {
       _isLoading = false;
@@ -83,18 +79,15 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
 
   void _saveSettings() {
     _userProfile.name = _nameController.text;
-    _userProfile.preferredCurrency = _selectedCurrencyDropdown;
 
     widget.onboardingBox.put('fullName', _nameController.text);
     widget.onboardingBox.put('job', _jobController.text);
     widget.onboardingBox.put('income', _incomeController.text);
-    widget.onboardingBox.put('preferredCurrencyOnboarding', _selectedCurrencyDropdown);
 
     widget.settingsBox.put('currentUserProfile', _userProfile);
 
     print('Settings saved (key-based):');
     print('Saved Username in Settings: ${_userProfile.name}');
-    print('Preferred Currency: ${_userProfile.preferredCurrency}');
     print('Saved Job: ${_jobController.text}');
     print('Saved Income: ${_incomeController.text}');
 
@@ -152,10 +145,6 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
                           _buildThemeSection(_userProfile.isDarkMode),
                           const Divider(),
                           _buildBiometricSecuritySection(_userProfile.biometricEnabled),
-                          const Divider(),
-                          _buildLanguageSection(_userProfile.language),
-                          const Divider(),
-                          _buildCurrencySection(),
                           const Divider(),
                           ElevatedButton(
                             onPressed: _saveSettings,
@@ -373,54 +362,6 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
             _userProfile.biometricEnabled = value;
           });
         },
-      ),
-    );
-  }
-
-  Widget _buildLanguageSection(String currentLanguage) {
-    return ListTile(
-      title: const Text('Language'),
-      subtitle: Text(currentLanguage == 'en' ? 'English' : 'Swahili'),
-      leading: const Icon(Icons.language, color: Colors.blue),
-      trailing: DropdownButton<String>(
-        value: currentLanguage,
-        onChanged: (String? newValue) {
-          setState(() {
-            _userProfile.language = newValue ?? 'en';
-          });
-        },
-        items: <String>['en', 'sw'].map<DropdownMenuItem<String>>((String value) {
-          return DropdownMenuItem<String>(
-            value: value,
-            child: Text(value == 'en' ? 'English' : 'Swahili'),
-          );
-        }).toList(),
-      ),
-    );
-  }
-
-  Widget _buildCurrencySection() {
-    return ListTile(
-      title: const Text('Preferred Currency'),
-      subtitle: Text(_selectedCurrencyDropdown),
-      leading: const Icon(Icons.monetization_on, color: Colors.blue),
-      trailing: SizedBox(
-        width: 150.0,
-        child: DropdownButtonFormField<String>(
-          value: _selectedCurrencyDropdown,
-          onChanged: (String? newValue) {
-            setState(() {
-              _selectedCurrencyDropdown = newValue ?? 'TZS';
-              _currentCurrency = CurrencyModel(code: _selectedCurrencyDropdown, exchangeRate: 1.0);
-            });
-          },
-          items: currencies.map<DropdownMenuItem<String>>((String value) {
-            return DropdownMenuItem<String>(
-              value: value,
-              child: Text(value),
-            );
-          }).toList(),
-        ),
       ),
     );
   }
