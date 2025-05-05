@@ -1,0 +1,7 @@
+#Sun May 04 23:12:30 EAT 2025
+base.1=C\:\\Users\\mgimw\\Flutter Projects\\akiba\\android\\app\\build\\intermediates\\desugar_lib_dex\\release\\classes1000.dex
+path.1=classes1000.dex
+base.0=C\:\\Users\\mgimw\\Flutter Projects\\akiba\\android\\app\\build\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
+renamed.1=classes2.dex
+renamed.0=classes.dex
+path.0=classes.dex
